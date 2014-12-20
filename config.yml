@@ -1,0 +1,10 @@
+# USER Config, these are the setting you are most likely to need to change
+netlog_dir: C:\Users\coder\Documents\ruby\logs
+netlog_glob_pattern: netlog.* 
+ocr_out_dir_glob:  C:/Users/coder/Documents/elite/ocr_out/*.csv
+base_url: "http://elitelog-codersparks.rhcloud.com/elitelog/"
+sleep_time: 10
+
+# Level for logging
+log_level: DEBUG
+

@@ -1,0 +1,18 @@
+
+* Parse CSV and convert to rest call
+* Monitor CSV out folder to parse and then delete once parsed
+* Deploy webapp to openshift
+MongoDB 2.4 database added.  Please make note of these credentials:
+
+Root User:     admin
+   Root Password: QJz9qU-hJ3kw
+   Database Name: elitelog
+
+Connection URL: mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/
+https://elitelog-codersparks.rhcloud.com/rockmongo/
+
+* Create JS app to parse data
+* Create C++ utility app
+* Connect to EDDN
+* Filter systems using getDistances call to EDSC to filter the data from EDDN
+* Investigate bronze openshift (to allow app that does not idle)

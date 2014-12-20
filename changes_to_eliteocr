@@ -1,0 +1,35 @@
+File EliteOCR.py in function tableToList(self):
+Change
+	result_list = [["System","Station","Commodity","Sell","Buy","Demand","","Supply","","Date"]]
+to
+	result_list = [["system","station","commodity","sell","buy","demand","demand_level","supply","supply_level","date"]]
+
+
+**************************************************
+
+customqlistwidgetitem.py replace function getSystemName(self) with:
+
+		"""Get system name from log files""" # TODO make more robust and cleaner
+        import os
+        import glob
+        path = self.settings['log_dir']
+        
+        systemRegex = re.compile(".*System:[^\(]*\(([^\)]*).*")
+        glob_string = os.path.join("\\", str(path), "netLog*.log")
+        
+        glob_result = glob.glob(glob_string)
+        
+        if len(glob_result) == 0:
+        	print("ERROR:: Cannot find log files in directory %s" % str(path))
+        	return ""
+        latest_log_file = max(glob.iglob(glob_string), key=os.path.getctime)
+        
+        #print(latest_log_file)
+        
+        for line in reversed(open(latest_log_file).readlines()):
+        	m = systemRegex.match(line)
+        	if m is not None:
+        		return m.group(1)
+        	
+        print("WARN:: Cannot find system in netlog file %s" % latest_log_file)
+        return ""  

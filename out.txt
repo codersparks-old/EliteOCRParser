@@ -1,0 +1,6 @@
+ INFO  Elite_OCR_CSV_Parser_Main : Config loaded from file ./config.yml
+DEBUG  Elite_OCR_CSV_Parser_Main : Config: {"netlog_dir"=>"C:\\Users\\coder\\Documents\\ruby\\logs", "netlog_glob_pattern"=>"netlog.*", "ocr_out_dir_glob"=>"C:/Users/coder/Documents/elite/ocr_out/*.csv", "working_dir"=>"C:/Users/coder/Documents/elite/working", "base_url"=>"http://localhost:8080", "log_level"=>"DEBUG"}
+ INFO  EliteLogRestClient : EliteLogRestClient configured for base_url: http://localhost:8080
+DEBUG  Elite_OCR_CSV_Parser_Main : Checking for csv files...C:/Users/coder/Documents/elite/ocr_out/*.csv
+DEBUG  Elite_OCR_CSV_Parser_Main : No files found...
+ WARN  Elite_OCR_CSV_Parser_Main : INTERRUPT signal caught...Exiting...
