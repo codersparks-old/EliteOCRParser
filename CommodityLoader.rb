@@ -27,7 +27,7 @@ class CommodityLoader
 
         end
       else
-        @logger.debug("No files found...")
+        @logger.debug("No files found...Sleeping for #{config["sleep_time"]} seconds")
       end
       sleep(config["sleep_time"])
 

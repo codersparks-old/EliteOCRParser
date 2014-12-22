@@ -4,9 +4,10 @@
 * Deploy webapp to openshift
 MongoDB 2.4 database added.  Please make note of these credentials:
 
-Root User:     admin
-   Root Password: QJz9qU-hJ3kw
+   Root User:     admin
+   Root Password: PHUxd37UwTeB
    Database Name: elitelog
+
 
 Connection URL: mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/
 https://elitelog-codersparks.rhcloud.com/rockmongo/

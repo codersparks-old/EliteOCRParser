@@ -11,7 +11,7 @@ class MarketData
     if name.nil?
       raise "Commodity name cannot be null"
     end
-    puts "Buy: #{buy}"
+    #puts "Buy: #{buy}"
     @commodities << { 
                       :name => name, 
                       :sell => sell.nil? ? "" : sell, 
