@@ -30,8 +30,10 @@ class EliteLogRestClient
   
   def update_commodity_prices(marketData)
     
+    
+    
     post_data = marketData.to_json
-    update_commodity_prices_url = URI.join(@base_url, "markets").to_s
+    update_commodity_prices_url = URI.join(@base_url, "commodities").to_s
     
     @logger.debug("Full URL for update_commodity_prices: #{update_commodity_prices_url}")
     @logger.debug("Data being sent as post body: #{post_data.to_s}")

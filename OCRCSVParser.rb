@@ -5,33 +5,40 @@ class OCRCSVParser
   @logger = Logging.logger[self]
   
   def self.parse_file(filename)
-    results = {}
+    results = []
     CSV.foreach(filename, {:headers => true, :col_sep => ";"}) do |csv|
-      #@logger.debug("CSV: #{csv}")
-      station = csv["station"]
-      marketData = results[station]
-        
-      if marketData.nil?
-        @logger.info("Station '#{station}' not found in result map...adding")
-        system = csv["system"]
-        if system.nil? || system == ""
-          system = "unknown"
-        end
-        marketData = MarketData.new(system,csv["station"])
+      data = {}
+      csv.each do | k, v|
+      	if k.nil?
+      	  @logger.debug("Nil key found value: #{v}, ignoring...")
+      	  next
+      	end
+      	
+      	# Transform some of the keys to the relevant name in the webapp
+      	case k
+      	  when "commodity"
+      	    k = "name"
+      	  when "demand_level"
+      	    k = "demandLevel"
+      	    if v.nil?
+      	    	v = ""
+      	    end
+      	  when "supply_level"
+      	    k = "supplyLevel"
+      	    if v.nil?
+      	        v = ""
+      	    end
+      	end
+      	puts "Key #{k.to_sym} Value #{v}"
+      	data[k.to_sym] = v
       end
       
-      marketData.add_commodity(
-            csv["commodity"],
-            csv["sell"],
-            csv["buy"],
-            csv["demand"],
-            csv["demand_level"],
-            csv["supply"],
-            csv["supply_level"])
-              
-      results[station] = marketData;
+      @logger.debug("Data: #{data}")
+      
+      results << data
     end
     
+    @logger.debug("results: #{results}")
     return results;
   end
   

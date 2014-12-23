@@ -19,16 +19,19 @@ class CommodityLoader
         file_list.each do |file_name|
           @logger.info("Processing File: #{file_name}")
           parsed_market_data = OCRCSVParser.parse_file(file_name)
-          parsed_market_data.each do |system, data|
+          parsed_market_data.each do |data|
             @logger.debug("Sending data to rest interface")
             rest_client.update_commodity_prices(data)
           end
-          FileUtils.rm_rf(file_name)
-
+          #FileUtils.rm_rf(file_name)
+          puts "Breaking...."
+          exit()
+	
         end
       else
-        @logger.debug("No files found...Sleeping for #{config["sleep_time"]} seconds")
+        @logger.info("No files found...")
       end
+      @logger.debug("Sleeping for #{config["sleep_time"]} seconds")
       sleep(config["sleep_time"])
 
     }
