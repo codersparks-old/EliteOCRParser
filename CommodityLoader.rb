@@ -23,9 +23,9 @@ class CommodityLoader
             @logger.debug("Sending data to rest interface")
             rest_client.update_commodity_prices(data)
           end
-          #FileUtils.rm_rf(file_name)
-          puts "Breaking...."
-          exit()
+          FileUtils.rm_rf(file_name)
+          #puts "Breaking...."
+          #exit()
 	
         end
       else

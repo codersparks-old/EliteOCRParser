@@ -1,0 +1,10 @@
+# USER Config, these are the setting you are most likely to need to change
+netlog_dir: C:\Users\Mark\AppData\Local\Frontier_Developments\Products\FORC-FDEV-D-1002\Logs
+netlog_glob_pattern: netlog.* 
+ocr_out_dir_glob:  C:/Users/Mark/Documents/elite/ocr-out/*.csv
+base_url: "http://localhost:8080/api/"
+sleep_time: 20
+
+# Level for logging
+log_level: DEBUG
+
